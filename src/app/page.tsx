@@ -221,36 +221,40 @@ export default function Home() {
               </span>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.target}
-                  href={`#${item.target}`}
-                  className={`font-sans text-xs tracking-[0.15em] uppercase font-light relative py-1 transition-colors duration-300 ${
-                    activeSection === item.target ? "text-luxury-plum font-normal" : "text-luxury-obsidian/60 hover:text-luxury-obsidian"
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.target && (
-                    <motion.span 
-                      layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[1px] bg-luxury-gold"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </a>
-              ))}
-            </nav>
+            {/* Desktop Navigation Group (Nav + CTA with spacing) */}
+            <div className="flex items-center gap-4 lg:gap-8">
+              <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item.target}
+                    href={`#${item.target}`}
+                    className={`font-sans text-xs tracking-[0.15em] uppercase font-light relative py-1 transition-colors duration-300 ${
+                      activeSection === item.target ? "text-luxury-plum font-normal" : "text-luxury-obsidian/60 hover:text-luxury-obsidian"
+                    }`}
+                  >
+                    {item.label}
+                    {activeSection === item.target && (
+                      <motion.span 
+                        layoutId="activeIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[1px] bg-luxury-gold"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                ))}
+              </nav>
 
-            {/* CTA Reserve slot */}
-            <div className="hidden md:flex items-center">
-              <button 
-                onClick={() => setBookingOpen(true)}
-                className="px-6 py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-xs font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm"
-              >
-                RESERVE VISIT
-              </button>
+              {/* Luxury vertical divider line for separating links & CTA on desktop */}
+              <div className="hidden lg:block w-[1px] h-4 bg-luxury-platinum/40" />
+
+              <div className="hidden md:flex items-center">
+                <button 
+                  onClick={() => setBookingOpen(true)}
+                  className="px-6 py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-xs font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm shrink-0"
+                >
+                  RESERVE VISIT
+                </button>
+              </div>
             </div>
 
             {/* Mobile Menu Icon */}
@@ -319,12 +323,7 @@ export default function Home() {
               variants={staggerContainer}
               className="space-y-8"
             >
-              <motion.span 
-                variants={fadeInUp}
-                className="inline-block text-[0.75rem] font-bold tracking-[0.25em] text-luxury-gold uppercase"
-              >
-                THE ATELIER EXPERIENCE
-              </motion.span>
+
               
               <motion.h1 
                 variants={fadeInUp}
