@@ -210,9 +210,9 @@ export default function Home() {
         <div className={`max-w-5xl mx-auto rounded-full border border-luxury-platinum/20 bg-luxury-pearl/70 backdrop-blur-xl transition-all duration-500 shadow-sm ${
           scrolled ? "py-3 px-8 shadow-md" : "py-5 px-10"
         }`}>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-6 lg:gap-8 w-full">
             {/* Elegant text logo */}
-            <a href="#sanctuary" className="flex flex-col select-none">
+            <a href="#sanctuary" className="flex flex-col select-none shrink-0">
               <span className="font-serif text-lg tracking-[0.18em] font-medium text-luxury-plum">
                 GLOSS STUDIO
               </span>
@@ -221,40 +221,36 @@ export default function Home() {
               </span>
             </a>
 
-            {/* Desktop Navigation Group (Nav + CTA with spacing) */}
-            <div className="flex items-center gap-4 lg:gap-8">
-              <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                {navItems.map((item) => (
-                  <a
-                    key={item.target}
-                    href={`#${item.target}`}
-                    className={`font-sans text-xs tracking-[0.15em] uppercase font-light relative py-1 transition-colors duration-300 ${
-                      activeSection === item.target ? "text-luxury-plum font-normal" : "text-luxury-obsidian/60 hover:text-luxury-obsidian"
-                    }`}
-                  >
-                    {item.label}
-                    {activeSection === item.target && (
-                      <motion.span 
-                        layoutId="activeIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-[1px] bg-luxury-gold"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </a>
-                ))}
-              </nav>
-
-              {/* Luxury vertical divider line for separating links & CTA on desktop */}
-              <div className="hidden lg:block w-[1px] h-4 bg-luxury-platinum/40" />
-
-              <div className="hidden md:flex items-center">
-                <button 
-                  onClick={() => setBookingOpen(true)}
-                  className="px-6 py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-xs font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm shrink-0"
+            {/* Desktop Navigation Links (Centered using mx-auto) */}
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8 mx-auto">
+              {navItems.map((item) => (
+                <a
+                  key={item.target}
+                  href={`#${item.target}`}
+                  className={`font-sans text-xs tracking-[0.15em] uppercase font-light relative py-1 transition-colors duration-300 ${
+                    activeSection === item.target ? "text-luxury-plum font-normal" : "text-luxury-obsidian/60 hover:text-luxury-obsidian"
+                  }`}
                 >
-                  RESERVE VISIT
-                </button>
-              </div>
+                  {item.label}
+                  {activeSection === item.target && (
+                    <motion.span 
+                      layoutId="activeIndicator"
+                      className="absolute bottom-0 left-0 right-0 h-[1px] bg-luxury-gold"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </a>
+              ))}
+            </nav>
+
+            {/* CTA Reserve slot (Pushed to the right with vertical divider on desktop) */}
+            <div className="hidden md:flex items-center lg:pl-6 lg:border-l lg:border-luxury-platinum/40 shrink-0">
+              <button 
+                onClick={() => setBookingOpen(true)}
+                className="px-6 py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-xs font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm"
+              >
+                RESERVE VISIT
+              </button>
             </div>
 
             {/* Mobile Menu Icon */}
