@@ -207,27 +207,27 @@ export default function Home() {
         transition={{ delay: 2.4, duration: 0.8, ease: "easeOut" }}
         className={`fixed top-6 left-0 right-0 z-[1000] px-4 transition-all duration-500`}
       >
-        <div className={`max-w-5xl mx-auto rounded-full border border-luxury-platinum/20 bg-luxury-pearl/70 backdrop-blur-xl transition-all duration-500 shadow-sm ${
-          scrolled ? "py-3 px-8 shadow-md" : "py-5 px-10"
+        <div className={`max-w-6xl mx-auto rounded-full border border-luxury-platinum/20 bg-luxury-pearl/70 backdrop-blur-xl transition-all duration-500 shadow-sm ${
+          scrolled ? "py-3 px-5 lg:px-6 xl:px-8 shadow-md" : "py-4 px-6 lg:px-8 xl:px-10"
         }`}>
           <div className="flex items-center justify-between gap-6 lg:gap-8 w-full">
             {/* Elegant text logo */}
             <a href="#sanctuary" className="flex flex-col select-none shrink-0">
-              <span className="font-serif text-lg tracking-[0.18em] font-medium text-luxury-plum">
+              <span className="font-serif text-base xl:text-lg tracking-[0.18em] font-medium text-luxury-plum">
                 GLOSS STUDIO
               </span>
-              <span className="text-[0.55rem] font-light tracking-[0.25em] text-luxury-gold uppercase leading-tight -mt-0.5">
+              <span className="text-[0.5rem] xl:text-[0.55rem] font-light tracking-[0.25em] text-luxury-gold uppercase leading-tight -mt-0.5">
                 NEW SHIMLA
               </span>
             </a>
 
-            {/* Desktop Navigation Links (Centered using mx-auto) */}
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-8 mx-auto">
+            {/* Desktop Navigation Links (Centered using mx-auto with optimized gaps) */}
+            <nav className="hidden lg:flex items-center gap-3 xl:gap-7 mx-auto">
               {navItems.map((item) => (
                 <a
                   key={item.target}
                   href={`#${item.target}`}
-                  className={`font-sans text-xs tracking-[0.15em] uppercase font-light relative py-1 transition-colors duration-300 ${
+                  className={`font-sans text-[10px] xl:text-xs tracking-[0.1em] xl:tracking-[0.18em] uppercase font-light relative py-1 transition-colors duration-300 ${
                     activeSection === item.target ? "text-luxury-plum font-normal" : "text-luxury-obsidian/60 hover:text-luxury-obsidian"
                   }`}
                 >
@@ -244,10 +244,10 @@ export default function Home() {
             </nav>
 
             {/* CTA Reserve slot (Pushed to the right with vertical divider on desktop) */}
-            <div className="hidden md:flex items-center lg:pl-6 lg:border-l lg:border-luxury-platinum/40 shrink-0">
+            <div className="hidden md:flex items-center lg:pl-4 xl:pl-6 lg:border-l lg:border-luxury-platinum/40 shrink-0">
               <button 
                 onClick={() => setBookingOpen(true)}
-                className="px-6 py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-xs font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm"
+                className="px-4 xl:px-6 py-2 xl:py-2.5 bg-luxury-plum hover:bg-luxury-gold text-luxury-pearl hover:text-luxury-obsidian text-[10px] xl:text-xs font-medium tracking-[0.12em] xl:tracking-[0.18em] uppercase rounded-full transition-all duration-500 shadow-sm"
               >
                 RESERVE VISIT
               </button>
